@@ -1,0 +1,19 @@
+[package]
+name = "sample"
+version = "0.1.1"
+authors = ["kennytm <kennytm@gmail.com>"]
+description = "Example static library project built for iOS and Android"
+publish = false
+
+[dependencies]
+regex = "0.2"
+rusoto_core = "0.39.0"
+rusoto_s3 = "0.39.0"
+rusoto_dynamodb = "0.39.0"
+
+[target.'cfg(target_os="android")'.dependencies]
+jni = { version = "0.9", default-features = false }
+
+[lib]
+name = "sample"
+crate-type = ["staticlib", "cdylib"]
